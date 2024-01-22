@@ -5,6 +5,21 @@ body {
     min-height: 100vh;
     background-color: #e3f2fd;
     color: #fff;
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #6610f2, #009688);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
@@ -88,7 +103,6 @@ header .column span {
 /* CONFIGURANDO BOTÕES DE EQUALIZADOR */
 
 .buttons label {
-    display: inline-block;
     position: relative;
     padding-bottom: 15px;
     cursor: pointer;
@@ -115,7 +129,7 @@ header .column span {
 }
 
 .buttons input[type="radio"]:checked + label::before {
-    background-color: green; /* Cor verde quando marcado */
+    background-color: green;
 }
 
 /* TECLAS DO PIANO */
@@ -171,4 +185,51 @@ header .column span {
 
 .piano-keys .key.hide span {
     display: none;
+}
+
+@media screen and (max-width: 790px) {  
+    .container {
+        width: 100%;
+    }
+
+    .piano-display {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons {
+        flex-direction: row;
+        gap: 10px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    header h2 {
+        display: none;
+    }
+    
+    header .column span {
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    .volume-slider input {
+        width: 100px;
+    }
+
+    .piano-keys .white {
+        width: 35px;
+        height: 115px;
+    }
+    
+    .piano-keys .black {
+        width: 22px;
+        height: 70px;
+        margin: 0 -11px 0 -11px;
+    }
+
+    .buttons label {
+        font-size: 0.8rem;
+    }
 }
