@@ -73,6 +73,7 @@ header .column span {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 
 .buttons {
@@ -80,21 +81,47 @@ header .column span {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-left: 10px;
+    gap: 5px;
 }
 
-.buttons input {
-    width: 10px;
-}
+/* CONFIGURANDO BOTÕES DE EQUALIZADOR */
 
-.buttons span {
+.buttons label {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 15px;
+    cursor: pointer;
     color: #8c8c8c;
     font-weight: 500;
-    font-size: 1.19rem;
+    font-size: 0.9rem;
 }
+
+.buttons input[type="radio"] {
+    display: none;
+}
+
+.buttons label::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translate(-50%);
+    width: 15px;
+    height: 15px;
+    border: 1px solid #8c8c8c;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.buttons input[type="radio"]:checked + label::before {
+    background-color: green; /* Cor verde quando marcado */
+}
+
+/* TECLAS DO PIANO */
 
 .piano-keys {
     display: flex;
-    margin-top: 40px;
 }
 
 .piano-keys .key {
